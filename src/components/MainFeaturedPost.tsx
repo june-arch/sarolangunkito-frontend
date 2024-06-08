@@ -51,7 +51,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.images})`,
+        // backgroundImage: `url(${post.images})`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -72,7 +72,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {post.images.map((step, index) => (
+        {post.images && post.images.length > 0 && post.images.map((step, index) => (
           <div key={step.id}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
