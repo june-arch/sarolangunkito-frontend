@@ -13,6 +13,8 @@ import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
+import { S_BASE_API_URL } from "@/utils/env/env";
+import { Banner } from "./type";
 
 const sections = [
   { title: 'Technology', url: '#' },
@@ -26,15 +28,6 @@ const sections = [
   { title: 'Style', url: '#' },
   { title: 'Travel', url: '#' },
 ];
-
-const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random?wallpapers',
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
-};
 
 const featuredPosts = [
   {
@@ -80,13 +73,45 @@ const sidebar = {
     { name: 'Facebook', icon: FacebookIcon },
   ],
 };
-export default function Home() {
+
+const fetchBanner = async () => {
+  try {
+    const response = await fetch(`${S_BASE_API_URL}/banner`, { headers: { 'Accept': 'application/json' } });
+    const data: Banner = await response.json();
+    console.log('Banner:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching banner:', error);
+  }
+};
+
+export default async function Home() {
+  const bannerMain = await fetchBanner();
+  let mainFeaturedBanner = {
+    title: 'Title of a longer featured blog post',
+    description:
+      "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    images: [{ id: 1, banner_id: 1, path: 'https://source.unsplash.com/random?wallpapers', created_at: '2021-10-10', updated_at: '2021-10-10' }],
+    imageText: 'main image description',
+    linkText: 'Continue reading…',
+  };
+
+  if (bannerMain) {
+    mainFeaturedBanner = {
+      title: bannerMain.name,
+      description: bannerMain.deskripsi,
+      images: bannerMain.images,
+      imageText: bannerMain.deskripsi,
+      linkText: 'Continue reading…',
+    };
+  }
+
   return (
     <>
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="Sarolangunkito" sections={sections} />
         <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
+          <MainFeaturedPost post={mainFeaturedBanner} />
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />

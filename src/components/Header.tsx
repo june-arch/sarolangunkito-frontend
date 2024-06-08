@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { Divider } from '@mui/material';
 
 interface HeaderProps {
   sections: ReadonlyArray<{
@@ -20,7 +21,7 @@ export default function Header(props: HeaderProps) {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
+        {/* <Button size="small">Subscribe</Button> */}
         <Typography
           component="h2"
           variant="h5"
@@ -31,14 +32,14 @@ export default function Header(props: HeaderProps) {
         >
           {title}
         </Typography>
-        <IconButton>
+        {/* <IconButton>
           <SearchIcon />
         </IconButton>
         <Button variant="outlined" size="small">
           Sign up
-        </Button>
+        </Button> */}
       </Toolbar>
-      <Toolbar
+      {/* <Toolbar
         component="nav"
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
@@ -55,7 +56,8 @@ export default function Header(props: HeaderProps) {
             {section.title}
           </Link>
         ))}
-      </Toolbar>
+      </Toolbar> */}
+      {/* <Divider /> */}
     </React.Fragment>
   );
 }
