@@ -78,20 +78,36 @@ async function Detail({ params }: { params: { slug: string } }) {
                 >
                   {dayjs(post.created_at).format("MMMM D, YYYY")}
                 </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: 4,
-                  }}
-                >
-                  {post.images && post.images.length > 1 ? (
+
+                {post.images && post.images.length > 1 ? (
+                  <Box
+                    sx={{
+                      position: "relative",
+                      mb: 4,
+                      mt: 2,
+                      borderRadius: 0,
+                      border: "none",
+                      mx: "0px auto",
+                    }}
+                  >
                     <CarouselEmbla
                       height={300}
                       width={300}
                       images={post.images}
                     />
-                  ) : (
+                  </Box>
+                ) : (
+                  <Box
+                    sx={{
+                      position: "relative",
+                      mb: 4,
+                      mt: 2,
+                      borderRadius: 0,
+                      border: "none",
+                    }}
+                    display="flex"
+                    justifyContent="center"
+                  >
                     <Image
                       src={`${C_BASE_API_URL}/${
                         post &&
@@ -106,8 +122,9 @@ async function Detail({ params }: { params: { slug: string } }) {
                       width={300}
                       height={300}
                     />
-                  )}
-                </Box>
+                  </Box>
+                )}
+
                 <ClientOnlyViewTextEditor post={post} />
                 <Stack direction={"row"} spacing={2} mt={4}>
                   {post.url_video &&
