@@ -47,28 +47,39 @@ export default function Main(props: MainProps) {
             <Typography variant="subtitle1" color="textSecondary" gutterBottom>
               {dayjs(post.created_at).format("MMMM D, YYYY")}
             </Typography>
-            <Box
-              sx={{
-                position: "relative",
-                mb: 4,
-                mt: 2,
-                borderRadius: 0,
-                border: "none",
-                margin: "0px auto",
-              }}
-              display="flex"
-              justifyContent="center"
-            >
-              {post.images && post.images.length > 1 ? (
+
+            {post.images && post.images.length > 1 ? (
+              <Box
+                sx={{
+                  position: "relative",
+                  mb: 4,
+                  mt: 2,
+                  borderRadius: 0,
+                  border: "none",
+                  mx: "0px auto",
+                }}
+              >
                 <CarouselEmbla height={300} width={300} images={post.images} />
-              ) : (
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  position: "relative",
+                  mb: 4,
+                  mt: 2,
+                  borderRadius: 0,
+                  border: "none",
+                }}
+                display="flex"
+                justifyContent="center"
+              >
                 <Image
-                  src={`${S_BASE_API_URL}/${
+                  src={`${C_BASE_API_URL}/${
                     post &&
                     post.images.length > 0 &&
                     post.images[0]?.path?.replaceAll("public", "storage")
                   }`}
-                  alt={`${S_BASE_API_URL}/${
+                  alt={`${C_BASE_API_URL}/${
                     post &&
                     post.images.length > 0 &&
                     post.images[0]?.path?.replaceAll("public", "storage")
@@ -77,8 +88,8 @@ export default function Main(props: MainProps) {
                   width={300}
                   height={300}
                 />
-              )}
-            </Box>
+              </Box>
+            )}
             <RichTextReadOnly content={post?.content} extensions={extensions} />
             <Stack direction={"row"} spacing={2} mt={4}>
               {post.url_video &&
@@ -110,7 +121,7 @@ export default function Main(props: MainProps) {
                       <video
                         width="100%"
                         controls
-                        src={`${S_BASE_API_URL}/${video.path.replaceAll(
+                        src={`${C_BASE_API_URL}/${video.path.replaceAll(
                           "public",
                           "storage"
                         )}`}

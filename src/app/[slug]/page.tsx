@@ -93,12 +93,12 @@ async function Detail({ params }: { params: { slug: string } }) {
                     />
                   ) : (
                     <Image
-                      src={`${S_BASE_API_URL}/${
+                      src={`${C_BASE_API_URL}/${
                         post &&
                         post.images.length > 0 &&
                         post.images[0]?.path?.replaceAll("public", "storage")
                       }`}
-                      alt={`${S_BASE_API_URL}/${
+                      alt={`${C_BASE_API_URL}/${
                         post &&
                         post.images.length > 0 &&
                         post.images[0]?.path?.replaceAll("public", "storage")
@@ -140,7 +140,7 @@ async function Detail({ params }: { params: { slug: string } }) {
                           <video
                             width="100%"
                             controls
-                            src={`${S_BASE_API_URL}/${video.path.replaceAll(
+                            src={`${C_BASE_API_URL}/${video.path.replaceAll(
                               "public",
                               "storage"
                             )}`}

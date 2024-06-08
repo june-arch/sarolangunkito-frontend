@@ -3,7 +3,16 @@ const nextConfig = {
   // output: 'export'
   reactStrictMode: true,
   images: {
-    domains: ['localhost','api.sarolangunkito.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.sarolangunkito.com",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
+    ],
   },
 };
 
