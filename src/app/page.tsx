@@ -78,7 +78,6 @@ const fetchBanner = async () => {
   try {
     const response = await fetch(`${S_BASE_API_URL}/banner`, { headers: { 'Accept': 'application/json' } });
     const data: Banner = await response.json();
-    console.log('Banner:', data);
     return data;
   } catch (error) {
     console.error('Error fetching banner:', error);

@@ -26,7 +26,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = post.images.length;
+  const maxSteps = post.images ? post.images.length : 0;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
