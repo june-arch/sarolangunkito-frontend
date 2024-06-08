@@ -3,7 +3,7 @@ const nextConfig = {
   // output: 'export'
   reactStrictMode: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost','api.sarolangunkito.com'],
   },
 };
 

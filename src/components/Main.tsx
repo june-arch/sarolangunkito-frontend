@@ -56,6 +56,8 @@ export default function Main(props: MainProps) {
                 border: "none",
                 margin: "0px auto",
               }}
+              display="flex"
+              justifyContent="center"
             >
               {post.images && post.images.length > 1 ? (
                 <CarouselEmbla height={300} width={300} images={post.images} />
