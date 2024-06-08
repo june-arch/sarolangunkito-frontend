@@ -54,21 +54,23 @@ export default function Main(props: MainProps) {
                 mt: 2,
                 borderRadius: 0,
                 border: "none",
-                margin: '0px auto'
+                margin: "0px auto",
               }}
             >
               {post.images && post.images.length > 1 ? (
                 <CarouselEmbla height={300} width={300} images={post.images} />
               ) : (
                 <Image
-                  src={`${C_BASE_API_URL}/${post.images[0]?.path?.replaceAll(
-                    "public",
-                    "storage"
-                  )}`}
-                  alt={`${C_BASE_API_URL}/${post.images[0]?.path?.replaceAll(
-                    "public",
-                    "storage"
-                  )}`}
+                  src={`${C_BASE_API_URL}/${
+                    post &&
+                    post.images.length > 0 &&
+                    post.images[0]?.path?.replaceAll("public", "storage")
+                  }`}
+                  alt={`${C_BASE_API_URL}/${
+                    post &&
+                    post.images.length > 0 &&
+                    post.images[0]?.path?.replaceAll("public", "storage")
+                  }`}
                   style={{ width: "auto", height: "auto" }}
                   width={300}
                   height={300}

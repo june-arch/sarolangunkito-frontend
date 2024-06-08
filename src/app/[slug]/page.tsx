@@ -87,7 +87,7 @@ async function Detail({ params }: { params: { slug: string } }) {
                     marginBottom: 4,
                   }}
                 >
-                  {post.images && post.images.length > 0 ? (
+                  {post.images && post.images.length > 1 ? (
                     <CarouselEmbla
                       height={300}
                       width={300}
@@ -95,14 +95,16 @@ async function Detail({ params }: { params: { slug: string } }) {
                     />
                   ) : (
                     <Image
-                      src={`${C_BASE_API_URL}/${post.images[0]?.path?.replaceAll(
-                        "public",
-                        "storage"
-                      )}`}
-                      alt={`${C_BASE_API_URL}/${post.images[0]?.path?.replaceAll(
-                        "public",
-                        "storage"
-                      )}`}
+                      src={`${C_BASE_API_URL}/${
+                        post &&
+                        post.images.length > 0 &&
+                        post.images[0]?.path?.replaceAll("public", "storage")
+                      }`}
+                      alt={`${C_BASE_API_URL}/${
+                        post &&
+                        post.images.length > 0 &&
+                        post.images[0]?.path?.replaceAll("public", "storage")
+                      }`}
                       width={300}
                       height={300}
                     />
