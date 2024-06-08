@@ -1,11 +1,7 @@
 "use client";
 import * as React from "react";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { Image } from "@/app/type";
-import { Button, MobileStepper, useTheme } from "@mui/material";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import { C_BASE_API_URL } from "@/utils/env/env";
 import { CarouselEmbla } from "./CarouselEmbla";
 
 interface MainFeaturedPostProps {

@@ -1,4 +1,4 @@
-import { C_BASE_API_URL } from "@/utils/env/env";
+import { C_BASE_API_URL, S_BASE_API_URL } from "@/utils/env/env";
 import React from "react";
 import { Article } from "../type";
 import Footer from "@/components/Footer";
@@ -17,9 +17,7 @@ import { sections, sidebar } from "../page";
 import { CarouselEmbla } from "@/components/CarouselEmbla";
 import { LinkSharp } from "@mui/icons-material";
 import dayjs from "dayjs";
-import { RichTextReadOnly } from "mui-tiptap";
 import Image from "next/image";
-import useExtensions from "@/components/useExtensions";
 import ClientOnlyViewTextEditor from "@/components/ClientOnlyViewTextEditor";
 
 async function getDetails(slug: string) {
@@ -95,12 +93,12 @@ async function Detail({ params }: { params: { slug: string } }) {
                     />
                   ) : (
                     <Image
-                      src={`${C_BASE_API_URL}/${
+                      src={`${S_BASE_API_URL}/${
                         post &&
                         post.images.length > 0 &&
                         post.images[0]?.path?.replaceAll("public", "storage")
                       }`}
-                      alt={`${C_BASE_API_URL}/${
+                      alt={`${S_BASE_API_URL}/${
                         post &&
                         post.images.length > 0 &&
                         post.images[0]?.path?.replaceAll("public", "storage")
@@ -142,7 +140,7 @@ async function Detail({ params }: { params: { slug: string } }) {
                           <video
                             width="100%"
                             controls
-                            src={`${C_BASE_API_URL}/${video.path.replaceAll(
+                            src={`${S_BASE_API_URL}/${video.path.replaceAll(
                               "public",
                               "storage"
                             )}`}

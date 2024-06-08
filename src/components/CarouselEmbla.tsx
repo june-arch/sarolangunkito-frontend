@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArticleImage, Image } from "@/app/type";
 import "./embla.css";
-import { C_BASE_API_URL } from "@/utils/env/env";
+import { S_BASE_API_URL } from "@/utils/env/env";
 import ImageNext from "next/image";
 
 export function CarouselEmbla({ images, height, width }: { images: Image[] | ArticleImage[], height: number, width: number}) {
@@ -24,11 +24,11 @@ export function CarouselEmbla({ images, height, width }: { images: Image[] | Art
               }}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              src={`${C_BASE_API_URL}/${image.path.replaceAll(
+              src={`${S_BASE_API_URL}/${image.path.replaceAll(
                 "public",
                 "storage"
               )}`}
-              alt={`${C_BASE_API_URL}/${image.path.replaceAll(
+              alt={`${S_BASE_API_URL}/${image.path.replaceAll(
                 "public",
                 "storage"
               )}`}
