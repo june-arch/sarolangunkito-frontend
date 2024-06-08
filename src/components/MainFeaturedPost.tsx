@@ -72,7 +72,7 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {post.images && post.images.length > 0 && post.images.map((step, index) => (
+        {post.images && post.images.length > 0 &&  post.images.map((step, index) => (
           <div key={step.id}>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
