@@ -75,6 +75,7 @@ const sidebar = {
 };
 
 const fetchBanner = async () => {
+  'use server';
   try {
     const res = await fetch(`${S_BASE_API_URL}/banner`, { headers: { 'Accept': 'application/json' },  next: { revalidate:  60 } });
     if (!res.ok) {
