@@ -127,8 +127,24 @@ const fetchArticleCard = async () => {
         updated_at: "2024-06-08T02:17:37.000000Z",
         url_video:
           '["https://www.tiktok.com/@tontawijauhari","https://www.instagram.com/tontawi_jauhari01/","https://www.facebook.com/profile.php?id=100007723877438"]',
-        images: [],
-        videos: [],
+        images: [
+          {
+            id: 41,
+            article_id: 25,
+            path: "public/images/1fb898f5-cd23-4d52-9d28-e21a1e38bd60_7.jpg",
+            created_at: "2024-06-08T02:21:19.000000Z",
+            updated_at: "2024-06-08T02:21:19.000000Z",
+          },
+        ],
+        videos: [
+          {
+            id: 3,
+            article_id: 25,
+            path: "public/videos/50f9fa66-9453-4746-a0fa-bbbf356c75f1_7.mp4",
+            created_at: "2024-06-08T02:21:19.000000Z",
+            updated_at: "2024-06-08T02:21:19.000000Z",
+          },
+        ],
       },
     ];
     return data;
@@ -163,8 +179,24 @@ const fetchArticle = async () => {
           updated_at: "2024-06-08T02:17:37.000000Z",
           url_video:
             '["https://www.tiktok.com/@tontawijauhari","https://www.instagram.com/tontawi_jauhari01/","https://www.facebook.com/profile.php?id=100007723877438"]',
-          images: [],
-          videos: [],
+          images: [
+            {
+              id: 41,
+              article_id: 25,
+              path: "public/images/1fb898f5-cd23-4d52-9d28-e21a1e38bd60_7.jpg",
+              created_at: "2024-06-08T02:21:19.000000Z",
+              updated_at: "2024-06-08T02:21:19.000000Z",
+            },
+          ],
+          videos: [
+            {
+              id: 3,
+              article_id: 25,
+              path: "public/videos/50f9fa66-9453-4746-a0fa-bbbf356c75f1_7.mp4",
+              created_at: "2024-06-08T02:21:19.000000Z",
+              updated_at: "2024-06-08T02:21:19.000000Z",
+            },
+          ],
         },
       ],
       first_page_url: "http://localhost:8000/article?page=1",
