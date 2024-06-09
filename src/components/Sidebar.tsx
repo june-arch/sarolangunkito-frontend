@@ -4,8 +4,6 @@ import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import Image from "next/image";
-import { C_BASE_API_URL } from "@/utils/env/env";
 
 interface SidebarProps {
   archives: ReadonlyArray<{
@@ -16,6 +14,7 @@ interface SidebarProps {
   social: ReadonlyArray<{
     icon: React.ElementType;
     name: string;
+    url: string;
   }>;
   title: string;
   images: React.JSX.Element[];
@@ -25,7 +24,7 @@ export default function Sidebar(props: SidebarProps) {
   const { archives, description, social, title, images } = props;
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={4} mb={2}>
       <Paper elevation={0} sx={{ p: 2, bgcolor: "grey.200" }}>
         <Typography variant="h6" gutterBottom>
           {title}
@@ -52,7 +51,9 @@ export default function Sidebar(props: SidebarProps) {
           sx={{ mb: 0.5 }}
         >
           <Stack direction="row" spacing={1} alignItems="center">
-            <network.icon />
+            <div style={{height: 24, width: 24}}>
+              <network.icon />
+            </div>
             <span>{network.name}</span>
           </Stack>
         </Link>

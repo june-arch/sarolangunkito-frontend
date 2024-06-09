@@ -53,8 +53,8 @@ async function Detail({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <Header title="Sarolangunkito" sections={sections} />
       <Container maxWidth="lg">
-        <Header title="Sarolangunkito" sections={sections} />
         <main>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Grid
@@ -126,26 +126,27 @@ async function Detail({ params }: { params: { slug: string } }) {
                 )}
 
                 <ClientOnlyViewTextEditor post={post} />
-                <Stack direction={"row"} spacing={2} mt={4}>
+                <Grid container spacing={2} mt={4}>
                   {post.url_video &&
                     JSON.parse(post.url_video).length > 0 &&
                     (JSON.parse(post.url_video) as string[]).map((url, i) => (
-                      <Tooltip title={url}>
-                        <Chip
-                          key={i}
-                          icon={<LinkSharp />}
-                          label={url}
-                          clickable
-                          color="primary"
-                          component="a"
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          sx={{ maxWidth: 230 }}
-                        />
-                      </Tooltip>
+                      <Grid item xs={6} lg={4} key={i}>
+                        <Tooltip title={url}>
+                          <Chip
+                            icon={<LinkSharp />}
+                            label={url}
+                            clickable
+                            color="primary"
+                            component="a"
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ maxWidth: 230 }}
+                          />
+                        </Tooltip>
+                      </Grid>
                     ))}
-                </Stack>
+                </Grid>
                 {post.videos && post.videos.length > 0 && (
                   <>
                     <Typography variant="h6" gutterBottom mt={2}>
@@ -180,7 +181,11 @@ async function Detail({ params }: { params: { slug: string } }) {
           </Grid>
         </main>
       </Container>
-      <Footer title="Contact Us" description="sarolangunkito" />
+      <Footer
+        title="Alamat :"
+        social={sidebar.social}
+        description="sarolangunkito"
+      />
     </>
   );
 }

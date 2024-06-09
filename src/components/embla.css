@@ -16,4 +16,9 @@
     background-position: 'center';
     position: relative;
 }
+@media (max-width: 576px) {
+    .embla__container {
+        height: 180px !important;
+    }
+}
   

@@ -32,6 +32,7 @@ export function CarouselEmbla({ images, height, width }: { images: Image[] | Art
                 "public",
                 "storage"
               )}`}
+              unoptimized
               priority
             />
           </div>

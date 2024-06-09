@@ -22,12 +22,11 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
       sx={{
         position: "relative",
         mb: 4,
-        mt: 2,
         borderRadius: 0,
         border: "none",
       }}
     >
-      <CarouselEmbla height={300} width={500} images={post.images} />
+      <CarouselEmbla height={370} width={500} images={post.images} />
     </Box>
   );
 }

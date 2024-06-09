@@ -7,12 +7,13 @@ import MainFeaturedPost from "@/components/MainFeaturedPost";
 import Sidebar from "@/components/Sidebar";
 import Main from "@/components/Main";
 import Grid from "@mui/material/Grid";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import Instagram from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import { S_BASE_API_URL } from "@/utils/env/env";
 import { Article, Banner, PaginatedResponse } from "./type";
 import Image from "next/image";
+import TikTokIcon from "@/components/TiktokIcon";
 
 export const sections = [
   { title: "Aspiratif", url: "#" },
@@ -26,8 +27,6 @@ export const sections = [
   { title: "Bupati", url: "#" },
   { title: "Sarolangun", url: "#" },
 ];
-
-const posts = [];
 
 export const sidebar = {
   title: "About",
@@ -47,20 +46,35 @@ export const sidebar = {
     { title: "April 1999", url: "#" },
   ],
   social: [
-    { name: "GitHub", icon: GitHubIcon },
-    { name: "X", icon: XIcon },
-    { name: "Facebook", icon: FacebookIcon },
+    { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/tontawi_jauhari01/" },
+    { name: "X", icon: XIcon, url: "#"},
+    { name: "Facebook", icon: FacebookIcon, url: "https://www.facebook.com/profile.php?id=100007723877438" },
+    { name: "Tiktok", icon: TikTokIcon, url: "https://www.tiktok.com/@tontawijauhari" }
   ],
   images: [
     <Image
-      src={"/1.jpg"}
+      src={"/sidebar-1.jpeg"}
       alt="image"
       width={300}
       height={300}
       style={{ width: "100%", height: "auto" }}
     />,
     <Image
-      src={"/2.jpg"}
+      src={"/sidebar-2.jpg"}
+      alt="image"
+      width={300}
+      height={300}
+      style={{ width: "100%", height: "auto" }}
+    />,
+    <Image
+      src={"/sidebar-3.jpg"}
+      alt="image"
+      width={300}
+      height={300}
+      style={{ width: "100%", height: "auto" }}
+    />,
+    <Image 
+      src={"/sidebar-4.jpg"}
       alt="image"
       width={300}
       height={300}
@@ -309,16 +323,20 @@ export default async function Home() {
 
   return (
     <>
-      <Container maxWidth="lg">
-        <Header title="Sarolangunkito" sections={sections} />
-        <main>
-          <MainFeaturedPost post={mainFeaturedBanner} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post, index) => (
-              <FeaturedPost key={index} post={post} />
-            ))}
-          </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
+      <Header title="sarolangunkito" sections={sections} />
+      <main>
+        <section style={{ backgroundColor: "#fdef00", padding: 20 }}>
+          <Container maxWidth="lg">
+            <MainFeaturedPost post={mainFeaturedBanner} />
+            <Grid container spacing={4}>
+              {featuredPosts.map((post, index) => (
+                <FeaturedPost key={index} post={post} />
+              ))}
+            </Grid>
+          </Container>
+        </section>
+        <Container maxWidth="lg">
+          <Grid container spacing={5} sx={{ mt: 3, mb: 2 }}>
             <Main title="Artikel Terbaru" posts={article} />
             <Sidebar
               title={sidebar.title}
@@ -328,9 +346,9 @@ export default async function Home() {
               images={sidebar.images}
             />
           </Grid>
-        </main>
-      </Container>
-      <Footer title="Contact Us" description="sarolangunkito" />
+        </Container>
+      </main>
+      <Footer title="Alamat :" social={sidebar.social} description="sarolangunkito" />
     </>
   );
 }
