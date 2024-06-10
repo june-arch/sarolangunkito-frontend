@@ -149,6 +149,7 @@ async function Detail({ params }: Props) {
                         post.images.length > 0 &&
                         post.images[0]?.path?.replaceAll("public", "storage")
                       }`}
+                      style={{ width: "auto", height: "auto" }}
                       width={300}
                       height={300}
                     />
