@@ -1,4 +1,4 @@
-import { C_BASE_API_URL, S_BASE_API_URL } from "@/utils/env/env";
+import { C_BASE_API_URL } from "@/utils/env/env";
 import React from "react";
 import { Article } from "../type";
 import Footer from "@/components/Footer";
