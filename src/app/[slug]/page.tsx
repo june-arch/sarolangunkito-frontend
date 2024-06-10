@@ -19,6 +19,7 @@ import { LinkSharp } from "@mui/icons-material";
 import dayjs from "dayjs";
 import Image from "next/image";
 import ClientOnlyViewTextEditor from "@/components/ClientOnlyViewTextEditor";
+import { Metadata, ResolvingMetadata } from "next";
 
 async function getDetails(slug: string) {
   try {
@@ -47,7 +48,36 @@ async function getDetails(slug: string) {
   }
 }
 
-async function Detail({ params }: { params: { slug: string } }) {
+export type Props = {
+  params: { slug: string };
+  searchParams: URLSearchParams;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { slug } = params;
+  const post = await getDetails(slug);
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: post.title,
+    openGraph: {
+      images: [
+        post && post.images.length > 0
+          ? post.images[0]?.path?.replaceAll("public", "storage")
+          : "/favicon.ico",
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+async function Detail({ params }: Props) {
   const { slug } = params;
   const post = await getDetails(slug);
 

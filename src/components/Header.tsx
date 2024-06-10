@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -5,8 +7,9 @@ import Link from "@mui/material/Link";
 import LiveDateTime from "./LiveDateTime";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
-import { Box, Container, Divider } from "@mui/material";
+import { Box, Container, Divider, useMediaQuery } from "@mui/material";
 import Logo from "./Logo";
+import theme from "@/theme";
 
 dayjs.locale("id");
 
@@ -20,6 +23,7 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { sections, title } = props;
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <React.Fragment>
@@ -41,7 +45,7 @@ export default function Header(props: HeaderProps) {
             href="/"
             style={{ textDecoration: "none" }}
           >
-            {title}
+            {!isMobile && title}
           </Typography>
           <LiveDateTime />
           {/* <IconButton>
