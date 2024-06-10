@@ -57,21 +57,29 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const { slug } = params;
   const post = await getDetails(slug);
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
+  const image = post.images.length > 0 ? `${C_BASE_API_URL}/${post.images[0].path.replaceAll("public", "storage")}` : "/favicon.ico";
+
   return {
     title: post.title,
     description: post.slug,
     openGraph: {
+      title: post.title,
+      description: post.slug,
+      url: `https://www.sarolangunkito.com/${slug}`,
+      type: "article",
       images: [
-        post && post.images.length > 0
-          ? post.images[0]?.path?.replaceAll("public", "storage")
-          : "/favicon.ico",
+        {
+          url: image,
+          width: 800,  // Set appropriate width
+          height: 600, // Set appropriate height
+          alt: post.title,
+        },
         ...previousImages,
       ],
     },
