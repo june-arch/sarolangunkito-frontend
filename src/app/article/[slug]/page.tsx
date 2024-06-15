@@ -1,6 +1,6 @@
 import { C_BASE_API_URL } from "@/utils/env/env";
 import React from "react";
-import { Article } from "../type";
+import { Article } from "../../type";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
@@ -13,7 +13,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { sections, sidebar } from "../page";
+import { sections, sidebar } from "../../page";
 import { CarouselEmbla } from "@/components/CarouselEmbla";
 import { LinkSharp } from "@mui/icons-material";
 import dayjs from "dayjs";
@@ -63,7 +63,13 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
-  const image = post.images.length > 0 ? `${C_BASE_API_URL}/${post.images[0].path.replaceAll("public", "storage")}` : "/favicon.ico";
+  const image =
+    post.images.length > 0
+      ? `${C_BASE_API_URL}/${post.images[0].path.replaceAll(
+          "public",
+          "storage"
+        )}`
+      : "/favicon.ico";
 
   return {
     title: post.title,
@@ -76,7 +82,7 @@ export async function generateMetadata(
       images: [
         {
           url: image,
-          width: 800,  // Set appropriate width
+          width: 800, // Set appropriate width
           height: 600, // Set appropriate height
           alt: post.title,
         },
@@ -166,27 +172,30 @@ async function Detail({ params }: Props) {
                 )}
 
                 <ClientOnlyViewTextEditor post={post} />
-                <Grid container spacing={2} mt={4}>
+                <Stack
+                  spacing={{ xs: 1, sm: 2 }}
+                  useFlexGap
+                  flexWrap={"wrap"}
+                  mt={4}
+                >
                   {post.url_video &&
                     JSON.parse(post.url_video).length > 0 &&
                     (JSON.parse(post.url_video) as string[]).map((url, i) => (
-                      <Grid item xs={6} lg={4} key={i}>
-                        <Tooltip title={url}>
-                          <Chip
-                            icon={<LinkSharp />}
-                            label={url}
-                            clickable
-                            color="primary"
-                            component="a"
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{ maxWidth: 230 }}
-                          />
-                        </Tooltip>
-                      </Grid>
+                      <Tooltip title={url}>
+                        <Chip
+                          icon={<LinkSharp />}
+                          label={url}
+                          clickable
+                          color="primary"
+                          component="a"
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ maxWidth: 230 }}
+                        />
+                      </Tooltip>
                     ))}
-                </Grid>
+                </Stack>
                 {post.videos && post.videos.length > 0 && (
                   <>
                     <Typography variant="h6" gutterBottom mt={2}>

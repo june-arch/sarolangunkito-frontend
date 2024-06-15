@@ -2,6 +2,8 @@ import * as React from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from '@mui/material/styles';
+import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import theme from "@/theme";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -10,6 +12,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <head>
       <meta charSet="utf-8" />
+        <GoogleTagManager gtmId="GTM-WLRZ395S" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -39,6 +42,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
+      <GoogleAnalytics gaId="G-R1JF6SXF7F" />
     </html>
   );
 }

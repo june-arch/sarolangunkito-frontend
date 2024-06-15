@@ -91,27 +91,25 @@ export default function Main(props: MainProps) {
               </Box>
             )}
             <RichTextReadOnly content={post?.content} extensions={extensions} />
-            <Grid container spacing={2} mt={4}>
+            <Stack spacing={{ xs: 1, sm: 2}} useFlexGap flexWrap={"wrap"} mt={4}>
               {post.url_video &&
                 JSON.parse(post.url_video).length > 0 &&
                 (JSON.parse(post.url_video) as string[]).map((url, i) => (
-                  <Grid item xs={6} lg={4} key={i}>
-                    <Tooltip title={url} >
-                      <Chip
-                        icon={<LinkSharp />}
-                        label={url}
-                        clickable
-                        color="primary"
-                        component="a"
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{ maxWidth: 230 }}
-                      />
-                    </Tooltip>
-                  </Grid>
+                  <Tooltip title={url}>
+                    <Chip
+                      icon={<LinkSharp />}
+                      label={url}
+                      clickable
+                      color="primary"
+                      component="a"
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{ maxWidth: 230 }}
+                    />
+                  </Tooltip>
                 ))}
-            </Grid>
+            </Stack>
             {post.videos && post.videos.length > 0 && (
               <>
                 <Typography variant="h6" gutterBottom mt={2}>

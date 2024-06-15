@@ -24,7 +24,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
 
   return (
     <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href={`/${post.slug}`}>
+      <CardActionArea component="a" href={`/article/${post.slug}`}>
         <Card sx={{ display: "flex" }} style={{height: 260}}>
           <CardContent sx={{ flex: 1 }}>
             <Tooltip

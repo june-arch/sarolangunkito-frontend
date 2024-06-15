@@ -4,18 +4,18 @@ const fetchDynamicPaths = async () => {
   const data = await response.json();
 
   return data.data.map(item => ({
-    loc: `https://www.sarolangunkito.com/${item.slug}`, // Adjust path according to your slug structure
+    loc: `https://www.sarolangunkito.com/article/${item.slug}`, // Adjust path according to your slug structure
     lastmod: new Date().toISOString(), // You can adjust the date format or source
   }));
 };
 
 module.exports = {
   siteUrl: 'https://www.sarolangunkito.com',
-  generateRobotsTxt: true,
+  generateRobotsTxt: false,
   sitemapSize: 7000, // Adjust if you expect more URLs to split the sitemap into multiple files
   changefreq: 'daily', // Set according to your update frequency
-  priority: 0.7, // Adjust priority for your pages
-  generateIndexSitemap: false, // Generates a sitemap index file
+  priority: 1, // Adjust priority for your pages
+  generateIndexSitemap: true, // Generates a sitemap index file
   async additionalPaths(config) {
     const dynamicPaths = await fetchDynamicPaths();
     return dynamicPaths.map(path => ({

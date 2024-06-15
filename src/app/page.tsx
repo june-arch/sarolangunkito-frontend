@@ -14,6 +14,8 @@ import { S_BASE_API_URL } from "@/utils/env/env";
 import { Article, Banner, PaginatedResponse } from "./type";
 import Image from "next/image";
 import TikTokIcon from "@/components/TiktokIcon";
+import { EventButtonGTM } from "@/components/ButtonGTM";
+import { EventButtonGA } from "@/components/ButtonGA";
 
 export const sections = [
   { title: "Aspiratif", url: "#" },
@@ -346,6 +348,8 @@ export default async function Home() {
               images={sidebar.images}
             />
           </Grid>
+          <EventButtonGTM />
+          <EventButtonGA />
         </Container>
       </main>
       <Footer title="Alamat :" social={sidebar.social} description="sarolangunkito" />
