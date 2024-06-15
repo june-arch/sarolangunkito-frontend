@@ -40,7 +40,7 @@ export default function Footer(props: FooterProps) {
             <Logo />
             <Divider sx={{ backgroundColor: "white", mx: 3 }} />
             <Stack direction={"column"} ml={3} my={2}>
-              {["Aspiratif", "Kreatif", "Unggul", "Amanah", "Transparan"].map(
+              {["Aspiratif", "Kreatif", "Unggul", "Religius", "Amanah", "Transparan"].map(
                 (item, index) => (
                   <>
                     <Typography variant="subtitle2" color="white" key={index}>

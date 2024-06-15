@@ -21,6 +21,7 @@ export const sections = [
   { title: "Aspiratif", url: "#" },
   { title: "Kreatif", url: "#" },
   { title: "Unggul", url: "#" },
+  { title: "Religius", url: "#" },
   { title: "Amanah", url: "#" },
   { title: "Transparan", url: "#" },
   { title: "TJ", url: "#" },
