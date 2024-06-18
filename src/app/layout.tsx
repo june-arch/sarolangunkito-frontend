@@ -122,9 +122,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         />
 
         {/* <!-- Heylink Meta Tags --> */}
-        <meta name="heylink.me:site" content="sarolangunkito.com" />
-        <meta name="heylink.me:creator" content="Sarolangunkito" />
-        <meta name="heylinkme:domain" content="sarolangunkito.com" />
+        <meta name="heylink.me:site" content="https://linktr.ee/tontawi_jauhari" />
+        <meta name="heylink.me:creator" content="TJ" />
+        <meta name="heylinkme:domain" content="https://linktr.ee/tontawi_jauhari" />
+
+        <meta name="google-adsense-account" content="ca-pub-5336480742330167" />
       </head>
       <GoogleTagManager gtmId="GTM-WLRZ395S" />
       <body>

@@ -349,8 +349,8 @@ export default async function Home() {
               images={sidebar.images}
             />
           </Grid>
-          <EventButtonGTM />
-          <EventButtonGA />
+          {/* <EventButtonGTM />
+          <EventButtonGA /> */}
         </Container>
       </main>
       <Footer title="Alamat :" social={sidebar.social} description="sarolangunkito" />

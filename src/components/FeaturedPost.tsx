@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -7,6 +9,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Tooltip } from "@mui/material";
 import dayjs from "dayjs";
+import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface FeaturedPostProps {
   post: {
@@ -24,17 +28,24 @@ export default function FeaturedPost(props: FeaturedPostProps) {
 
   return (
     <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href={`/article/${post.slug}`}>
-        <Card sx={{ display: "flex" }} style={{height: 260}}>
+      <CardActionArea
+        component="a"
+        href={`/article/${post.slug}`}
+        onClick={() => {
+          sendGTMEvent({
+            event: "article-detail",
+            value: `/article/${post.slug}`,
+          });
+          sendGAEvent({
+            event: "article-detail",
+            value: `/article/${post.slug}`,
+          });
+        }}
+      >
+        <Card sx={{ display: "flex" }} style={{ height: 260 }}>
           <CardContent sx={{ flex: 1 }}>
             <Tooltip
-              title={
-                <Typography
-                  variant="subtitle1"
-                >
-                  {post.title}
-                </Typography>
-              }
+              title={<Typography variant="subtitle1">{post.title}</Typography>}
             >
               <Typography
                 component="h2"
@@ -63,10 +74,9 @@ export default function FeaturedPost(props: FeaturedPostProps) {
                 WebkitLineClamp: "3",
                 WebkitBoxOrient: "vertical",
               }}
-              component={'div'}
+              component={"div"}
               dangerouslySetInnerHTML={{ __html: post.description }}
-            >
-            </Typography>
+            ></Typography>
             <Typography variant="subtitle1" color="primary">
               Continue reading...
             </Typography>
