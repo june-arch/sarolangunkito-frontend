@@ -121,7 +121,7 @@ function MainArticlePost({
           <HorizontalArticle post={featuredPosts[0]} />
         </Box>
         <Grid gutter="md">
-          {featuredPosts.map((post, index) => (
+          {featuredPosts.slice(1).map((post, index) => (
             <Grid.Col span={{ xs: 12, md: 12 }} key={index}>
               <HorizontalArticle post={post} />
             </Grid.Col>
