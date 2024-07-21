@@ -32,7 +32,7 @@ export default function Header(props: HeaderProps) {
   return (
     <React.Fragment>
       <Container size={MAX_WIDTH}>
-        <Group justify="space-between" h={50}>
+        <Group justify="space-between" gap={0} h={50}>
           <Text
             component="a"
             size="xl"

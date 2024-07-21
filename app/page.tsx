@@ -89,7 +89,7 @@ export default async function HomePage() {
     <>
       <Header title="sarolangunkito" sections={sections} />
       <main>
-        <section style={{ backgroundColor: "#fdef00", padding: 20 }}>
+        <section style={{ backgroundColor: "#fdef00", paddingTop: 20, paddingBottom: 20 }}>
           <Container size={MAX_WIDTH}>
             <MainFeaturedPost post={mainFeaturedBanner} />
             <MainArticlePost featuredPosts={featuredPosts} />

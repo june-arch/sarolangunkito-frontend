@@ -55,11 +55,11 @@ export default function Sidebar(props: SidebarProps) {
           </div>
         </Link>
       ))}
-      <Stack mt={3} gap={3}>
+      <Grid mt={3}>
         {images.map((image, index) => (
-          <React.Fragment key={index}>{image}</React.Fragment>
+          <Grid.Col span={{base: 6, md: 12}} key={index}>{image}</Grid.Col>
         ))}
-      </Stack>
+      </Grid>
     </Grid.Col>
   );
 }
